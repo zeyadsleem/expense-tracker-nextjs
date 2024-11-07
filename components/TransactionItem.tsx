@@ -9,7 +9,7 @@ const TransactionItem = ({ transaction }: { transaction: Transaction }) => {
 
   const handleDeleteTransaction = async (transactionId: string) => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this trasaction?"
+      "Are you sure you want to delete this transaction?",
     );
 
     if (!confirmed) return;
@@ -27,13 +27,13 @@ const TransactionItem = ({ transaction }: { transaction: Transaction }) => {
     <li className={transaction.amount < 0 ? "minus" : "plus"}>
       {transaction.text}
       <span>
-        {sign} ${addCommas(Math.abs(transaction.amount))}
+        {sign}${addCommas(Math.abs(transaction.amount))}
       </span>
       <button
         onClick={() => handleDeleteTransaction(transaction.id)}
         className="delete-btn"
       >
-        X
+        x
       </button>
     </li>
   );
